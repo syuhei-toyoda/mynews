@@ -1,3 +1,7 @@
+@extends('layouts.profile')
+
+@section('title', 'プロフィールの新規作成')
+
 <!DOCTYPE html>
 <html>
     <head>
