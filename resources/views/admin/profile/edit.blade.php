@@ -11,7 +11,7 @@
     </body>
     {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
 @guest
-　　<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
 @else
         <li class="nav-item dropdown">
