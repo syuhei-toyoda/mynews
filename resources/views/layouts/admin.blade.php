@@ -47,17 +47,17 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-<!-- {{-- ログインしていなかったらログイン画面へのリンクを表示 --}} -->
-@guest
-  <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-<!-- {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}} -->
-@else
-        <li class="nav-item dropdown">
-               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <!-- {{-- ログインしていなかったらログイン画面へのリンクを表示 --}} -->
+                        @guest
+                        <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                        <!-- {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}} -->
+                        @else
+                        <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                          {{ Auth::user()->name }} <span class="caret"></span>
-               </a>
+                        </a>
 
-               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                  {{ __('Logout') }}
                          </a>
@@ -67,9 +67,9 @@
                          </form>
                </div>
         </li>
-        @endguest
-        <!-- {{-- 以上までを追記 --}} -->
-</ul>
+                        @endguest
+                        <!-- {{-- 以上までを追記 --}} -->
+                        </ul>
                         </ul>
                     </div>
                 </div>

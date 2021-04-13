@@ -8,6 +8,21 @@
             <div class="col-md-8 mx-auto">
                 <h2>プロフィール新規作成</h2>
             </div>
+            <div class="col-md-10">
+            名前<input type="text" class="form-control" name="name" value="{{ old('name') }}">
+            </div>
+            性別<div class="col-md-10">
+            男性<input type="radio" class="form-control" name="gender" value="{{ old('gender') }}">
+            女性<input type="radio" class="form-control" name="gender" value="{{ old('gender') }}">
+            </div>
+            趣味<div class="col-md-10">
+                            <textarea class="form-control" name="hobby" rows="5">{{ old('hobby') }}</textarea>
+            </div>
+            自己紹介<div class="col-md-10">
+                            <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="更新">
+
         </div>
     </div>
 @endsection
