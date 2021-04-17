@@ -1,3 +1,4 @@
+@extends('layouts.admin')
 
 @section('title', 'プロフィールの新規作成')
 
@@ -20,6 +21,12 @@
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
+                    </div>
+                    <div>
+                    <input type="radio"  name="gender" value="男性">男性
+                    </div>
+                    <div>
+                    <input type="radio"  name="gender" value="女性">女性
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">趣味</label>
