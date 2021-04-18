@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.profile')
 
 @section('title', 'プロフィールの新規作成')
 
@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>プロフィール新規作成</h2>
-                <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -17,27 +17,28 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">名前</label>
+                        <label class="col-md-2" for="name">名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
-                        </div>
-                    </div>
-                    <div>
-                    <input type="radio"  name="gender" value="男性">男性
-                    </div>
-                    <div>
-                    <input type="radio"  name="gender" value="女性">女性
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2" for="body">趣味</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="8">{{ old('body') }}</textarea>
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">自己紹介欄</label>
+                    <label class="col-md-2" for="gender">性別</label>
+                    <div class="col-md-10">
+                    <input type="radio" name="gender" value="男性" checked>男性<br>
+                    <input type="radio" name="gender" value="女性">女性
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="8">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="hobby" rows="8">{{ old('body') }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="introduction">自己紹介欄</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="introduction" rows="8">{{ old('body') }}</textarea>
                         </div>
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
