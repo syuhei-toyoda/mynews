@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\News;
+use App\Profile;
 
 class ProfileController extends Controller
 {
@@ -33,9 +33,9 @@ public function update()
 
       // 以下を追記
       // Varidationを行う
-      $this->validate($request, News::$rules);
+      $this->validate($request, Profile::$rules);
 
-      $news = new News;
+      $news = new Profile;
       $form = $request->all();
 
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
@@ -52,22 +52,22 @@ public function update()
       unset($form['image']);
 
       // データベースに保存する
-      $news->fill($form);
-      $news->save();
+      $profile->fill($form);
+      $profile->save();
 
-      return redirect('admin/news/create');
+      return redirect('admin/profile/create');
   }
      public function index(Request $request)
   {
       $cond_title = $request->cond_title;
       if ($cond_title != '') {
           // 検索されたら検索結果を取得する
-          $posts = News::where('title', $cond_title)->get();
+          $posts = Profile::where('title', $cond_title)->get();
       } else {
           // それ以外はすべてのニュースを取得する
-          $posts = News::all();
+          $posts = Profile::all();
       }
-      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
 }
