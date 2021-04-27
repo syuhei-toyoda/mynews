@@ -54,6 +54,6 @@ class NewsController extends Controller
       }
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
-
+  
 
 }
