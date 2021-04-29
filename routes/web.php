@@ -16,20 +16,34 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
   Route::get('news/create', 'Admin\NewsController@add');
   Route::post('news/create', 'Admin\NewsController@create');
-    Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::post('profile/create', 'Admin\ProfileController@create');
+  Route::get('news', 'Admin\NewsController@index');
+});
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+  Route::get('profile/create', 'Admin\ProfileController@add');
+  Route::post('profile/create', 'Admin\ProfileController@create');
+  Route::get('profile/edit', 'Admin\ProfileController@edit');
+  Route::post('profile/edit', 'Admin\ProfileController@update');
+  Route::get('profile', 'Admin\ProfileController@index');
+});
+
+
+// Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+//   Route::get('news/create', 'Admin\NewsController@add');
+//   Route::post('news/create', 'Admin\NewsController@create');
+//     Route::get('profile/create', 'Admin\ProfileController@add');
+//     Route::post('profile/create', 'Admin\ProfileController@create');
 
   
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
-    Route::post('profile/edit', 'Admin\ProfileController@update');
+//     Route::get('profile/edit', 'Admin\ProfileController@edit');
+//     Route::post('profile/edit', 'Admin\ProfileController@update');
 
-    Route::get('news', 'Admin\NewsController@index');
+//     Route::get('news', 'Admin\NewsController@index');
 
-    Route::get('news', 'Admin\ProfileController@index');
-  });
+//     Route::get('profile', 'Admin\ProfileController@index');
+//   });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
