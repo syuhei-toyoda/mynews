@@ -30,14 +30,17 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="hobby" rows="8">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="hobby" rows="8">{{ old('hobby') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="8">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="8">{{ old('introduction') }}</textarea>
                         </div>
+                        </div>
+                        <input type="hidden" name="id" value="{{ $profile_form->id }}">
+
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
