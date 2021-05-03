@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Profile;
 
-use App\Profileistory;
+use App\Profilhistory;
 use Carbon\Carbon;
 
 class ProfileController extends Controller

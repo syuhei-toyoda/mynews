@@ -15,7 +15,7 @@ class Profile extends Model
         'hobby' => 'required',
         'introduction' => 'required',
     );
-    public function histories()
+    public function profilehistories()
     {
       return $this->hasMany('App\profilehistory');
 
